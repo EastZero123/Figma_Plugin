@@ -1,0 +1,36 @@
+<style>
+  html {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+  }
+
+  body {
+    width: 100%;
+    height: 100%;
+    font-family: Sans-serif;
+  }
+
+  .contentbox input {
+    width: 30%;
+  }
+</style>
+
+<div class="contentbox">
+  <h2>Hello, world!</h2>
+  <p>This is my first plugin.</p>
+  <p>
+    가로 :
+    <input type="text" name="garo" id="garo" />
+  </p>
+  <p>세로 : <input type="text" name="sero" id="sero" /></p>
+  <button type="button" class="button" onclick="submit(this)">제작</button>
+</div>
+
+<script type="text/javascript">
+  const submit = (obj) => {
+    var garoV = document.getElementById("garo").value
+    var seroV = document.getElementById("sero").value
+    parent.postMessage({ pluginMessage: { garo: garoV, sero: seroV } }, "*")
+  }
+</script>
